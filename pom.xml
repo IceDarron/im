@@ -15,6 +15,7 @@
         <module>protobuf</module>
         <module>gate</module>
         <module>auth</module>
+        <module>logic</module>
     </modules>
 
     <properties>
