@@ -32,24 +32,6 @@ public class AuthLogicConnectionHandler extends SimpleChannelInboundHandler<Mess
         sendGreet2Logic();
     }
 
-    @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Message message) throws Exception {
-        Internal.GTransfer gt = (Internal.GTransfer) message;
-        int ptoNum = gt.getPtoNum();
-        Message msg = ParseMap.getMessage(ptoNum, gt.getMsg().toByteArray());
-
-        IMHandler handler = null;
-        if(msg instanceof Chat.CPrivateChat) {
-            handler = HandlerManager.getHandler(ptoNum, gt.getUserId(), -1L, msg, AuthServerHandler.getGateAuthConnection());
-        } else {
-            logger.error("Error Messgae Type: {}", msg.getClass());
-            return;
-        }
-
-        Worker.dispatch(gt.getUserId(), handler);
-
-    }
-
     private void sendGreet2Logic() {
         Internal.Greet.Builder ig = Internal.Greet.newBuilder();
         ig.setFrom(Internal.Greet.From.Auth);
@@ -64,5 +46,22 @@ public class AuthLogicConnectionHandler extends SimpleChannelInboundHandler<Mess
 
     public static void setAuthLogicConnecttion(ChannelHandlerContext ctx) {
         _authLogicConnection = ctx;
+    }
+
+    @Override
+    protected void messageReceived(ChannelHandlerContext channelHandlerContext, Message message) throws Exception {
+        Internal.GTransfer gt = (Internal.GTransfer) message;
+        int ptoNum = gt.getPtoNum();
+        Message msg = ParseMap.getMessage(ptoNum, gt.getMsg().toByteArray());
+
+        IMHandler handler = null;
+        if(msg instanceof Chat.CPrivateChat) {
+            handler = HandlerManager.getHandler(ptoNum, gt.getUserId(), -1L, msg, AuthServerHandler.getGateAuthConnection());
+        } else {
+            logger.error("Error Messgae Type: {}", msg.getClass());
+            return;
+        }
+
+        Worker.dispatch(gt.getUserId(), handler);
     }
 }

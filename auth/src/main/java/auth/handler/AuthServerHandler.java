@@ -40,23 +40,6 @@ public class AuthServerHandler extends SimpleChannelInboundHandler<Message> {
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Message message) throws Exception {
-        Internal.GTransfer gt = (Internal.GTransfer) message;
-        int ptoNum = gt.getPtoNum();
-        Message msg = ParseMap.getMessage(ptoNum, gt.getMsg().toByteArray());
-
-        IMHandler handler;
-        if(msg instanceof Internal.Greet) {
-            //来自gate的连接请求
-            handler = HandlerManager.getHandler(ptoNum, gt.getUserId(), gt.getNetId(), msg, channelHandlerContext);
-        } else {
-            handler = HandlerManager.getHandler(ptoNum, gt.getUserId(), gt.getNetId(), msg, getGateAuthConnection());
-        }
-
-        Worker.dispatch(gt.getUserId(), handler);
-    }
-
-    @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
             throws Exception {
         // super.exceptionCaught(ctx, cause);
@@ -74,5 +57,22 @@ public class AuthServerHandler extends SimpleChannelInboundHandler<Message> {
         } else {
             return null;
         }
+    }
+
+    @Override
+    protected void messageReceived(ChannelHandlerContext channelHandlerContext, Message message) throws Exception {
+        Internal.GTransfer gt = (Internal.GTransfer) message;
+        int ptoNum = gt.getPtoNum();
+        Message msg = ParseMap.getMessage(ptoNum, gt.getMsg().toByteArray());
+
+        IMHandler handler;
+        if(msg instanceof Internal.Greet) {
+            //来自gate的连接请求
+            handler = HandlerManager.getHandler(ptoNum, gt.getUserId(), gt.getNetId(), msg, channelHandlerContext);
+        } else {
+            handler = HandlerManager.getHandler(ptoNum, gt.getUserId(), gt.getNetId(), msg, getGateAuthConnection());
+        }
+
+        Worker.dispatch(gt.getUserId(), handler);
     }
 }
