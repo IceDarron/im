@@ -122,7 +122,7 @@ public class GateStarter {
     static void printHelpMessage() {
         System.out.println( "Change the xml File and Log.XML Path to right Absolute Path base on your project Location in your computor");
         System.out.println("Usage example: ");
-        System.out.println( "java -cfg D:\\MyProject\\face2face\\gate\\src\\main\\resources\\auth.xml  -log D:\\MyProject\\face2face\\gate\\src\\main\\resources\\log.xml");
+        System.out.println( "java -cfg D:\\MyProject\\face2face\\gate\\src\\main\\resources\\gate.xml  -log D:\\MyProject\\face2face\\gate\\src\\main\\resources\\log.xml");
         System.exit(0);
     }
 

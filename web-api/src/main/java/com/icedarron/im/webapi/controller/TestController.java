@@ -9,4 +9,11 @@ public class TestController {
     public String hello() {
         return "hello,this is a springboot demo...";
     }
+
+    public void main(String[] args){
+        System.out.print("/");
+    }
 }
+
+
+
