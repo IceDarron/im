@@ -17,7 +17,7 @@ import java.util.Map;
 
 
 /**
- * Created by Dell on 2016/3/4.
+ * Created by IceDarron 20180718.
  */
 public class HandlerManager {
     private static final Logger logger = LoggerFactory.getLogger(HandlerManager.class);

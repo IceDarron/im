@@ -1,7 +1,7 @@
 package logic.starter;
 
 /**
- * Created by Dell on 2016/2/2.
+ * Created by IceDarron 20180718.
  */
 
 import logic.LogicServer;
@@ -23,7 +23,7 @@ import java.io.File;
 
 
 /**
- * Created by Qzy on 2016/1/28.
+ * Created by IceDarron 20180718.
  */
 
 public class LogicStarter {
@@ -55,17 +55,17 @@ public class LogicStarter {
             Element element = null;
 
 
-            xPathExpression  = xPath.compile("/logic/logicserver");
-            nodeList = (NodeList)xPathExpression.evaluate(rootElement, XPathConstants.NODESET);
-            element = (Element)nodeList.item(0);
+            xPathExpression = xPath.compile("/logic/logicserver");
+            nodeList = (NodeList) xPathExpression.evaluate(rootElement, XPathConstants.NODESET);
+            element = (Element) nodeList.item(0);
             int logicListenPort = Integer.parseInt(element.getAttribute("port"));
             logger.info("Logicserver logicListenPort " + logicListenPort);
             workNum = Integer.parseInt(element.getAttribute("workNum"));
             logic.Worker.startWorker(workNum);
 
-            xPathExpression  = xPath.compile("/logic/redis");
-            nodeList = (NodeList)xPathExpression.evaluate(rootElement, XPathConstants.NODESET);
-            element = (Element)nodeList.item(0);
+            xPathExpression = xPath.compile("/logic/redis");
+            nodeList = (NodeList) xPathExpression.evaluate(rootElement, XPathConstants.NODESET);
+            element = (Element) nodeList.item(0);
             _redisPoolManager = new RedisPoolManager();
             _redisPoolManager.REDIS_SERVER = element.getAttribute("ip");
             _redisPoolManager.REDIS_PORT = Integer.parseInt(element.getAttribute("port"));
@@ -85,27 +85,27 @@ public class LogicStarter {
 
     static void parseArgs(String[] args) throws ParseException {
         // Create a Parser
-        CommandLineParser parser = new BasicParser( );
-        Options options = new Options( );
+        CommandLineParser parser = new BasicParser();
+        Options options = new Options();
         options.addOption("h", "help", false, "Print this usage information");
         options.addOption("c", "cfg", true, "config Absolute Path");
         options.addOption("l", "log", true, "log configuration");
 
         // Parse the program arguments
-        CommandLine commandLine = parser.parse( options, args );
+        CommandLine commandLine = parser.parse(options, args);
         // Set the appropriate variables based on supplied options
 
-        if( commandLine.hasOption('h') ) {
+        if (commandLine.hasOption('h')) {
             printHelpMessage();
             System.exit(0);
         }
-        if( commandLine.hasOption('c') ) {
+        if (commandLine.hasOption('c')) {
             cfg = new File(commandLine.getOptionValue('c'));
         } else {
             printHelpMessage();
             System.exit(0);
         }
-        if( commandLine.hasOption('l') ) {
+        if (commandLine.hasOption('l')) {
             log = new File(commandLine.getOptionValue('l'));
         } else {
             printHelpMessage();
@@ -114,9 +114,9 @@ public class LogicStarter {
     }
 
     static void printHelpMessage() {
-        System.out.println( "Change the xml File and Log.XML Path to the right Absolute Path base on your project Location in your computor");
+        System.out.println("Change the xml File and Log.XML Path to the right Absolute Path base on your project Location in your computor");
         System.out.println("Usage example: ");
-        System.out.println( "java -cfg D:\\MyProject\\face2face\\logic\\src\\main\\resources\\logic.xml  -log D:\\MyProject\\face2face\\logic\\src\\main\\resources\\log.xml");
+        System.out.println("java -cfg D:\\MyProject\\face2face\\logic\\src\\main\\resources\\logic.xml  -log D:\\MyProject\\face2face\\logic\\src\\main\\resources\\log.xml");
         System.exit(0);
     }
 

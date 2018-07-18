@@ -15,7 +15,7 @@ import protobuf.code.PacketEncoder;
 import java.net.InetSocketAddress;
 
 /**
- * Created by Dell on 2016/2/2.
+ * Created by IceDarron 20180718.
  */
 public class LogicServer {
     private static final Logger logger = LoggerFactory.getLogger(LogicServer.class);
