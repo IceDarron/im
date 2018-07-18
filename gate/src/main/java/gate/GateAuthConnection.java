@@ -14,7 +14,7 @@ import protobuf.code.PacketDecoder;
 import protobuf.code.PacketEncoder;
 
 /**
- * Created by Qzy on 2016/1/28.
+ * Created by IceDarron 20180718.
  */
 public class GateAuthConnection {
     private static final Logger logger = LoggerFactory.getLogger(GateAuthConnection.class);

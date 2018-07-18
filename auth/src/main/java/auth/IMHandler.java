@@ -6,7 +6,7 @@ import org.apache.thrift.TException;
 import redis.clients.jedis.Jedis;
 
 /**
- * Created by Dell on 2016/3/2.
+ * Created by IceDarron 20180718.
  */
 public abstract class IMHandler {
     protected final String _userid;

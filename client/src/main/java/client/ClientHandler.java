@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Created by Dell on 2016/2/15.
+ * Created by IceDarron 20180718.
  * 模拟客户端聊天：自己给自己发消息
  */
 public class ClientHandler extends SimpleChannelInboundHandler<Message> {

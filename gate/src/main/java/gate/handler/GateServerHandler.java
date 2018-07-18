@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by Dell on 2016/2/1.
+ * Created by IceDarron 20180718.
  */
 public class GateServerHandler extends SimpleChannelInboundHandler<Message> {
     private static final Logger logger = LoggerFactory.getLogger(GateServerHandler.class);

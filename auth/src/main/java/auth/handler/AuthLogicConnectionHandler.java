@@ -16,7 +16,7 @@ import protobuf.generate.cli2srv.chat.Chat;
 import protobuf.generate.internal.Internal;
 
 /**
- * Created by win7 on 2016/3/5.
+ * Created by IceDarron 20180718.
  */
 public class AuthLogicConnectionHandler extends SimpleChannelInboundHandler<Message> {
     private static final Logger logger = LoggerFactory.getLogger(AuthLogicConnectionHandler.class);

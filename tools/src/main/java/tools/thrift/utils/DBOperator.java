@@ -6,7 +6,7 @@ import org.apache.thrift.TException;
 import org.apache.thrift.TSerializer;
 
 /**
- * Created by Dell on 2016/2/22.
+ * Created by IceDarron 20180718.
  */
 public class DBOperator  {
     public static <T extends TBase> T Deserialize(T obj, byte[] data) throws TException {

@@ -6,7 +6,7 @@ import protobuf.generate.cli2srv.login.Auth;
 import java.io.IOException;
 
 /**
- * Created by Dell on 2016/2/17.
+ * Created by IceDarron 20180718.
  */
 public class TransferHandlerMap {
     public static void initRegistry() throws IOException {

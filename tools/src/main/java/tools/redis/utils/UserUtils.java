@@ -3,7 +3,7 @@ package tools.redis.utils;
 import java.nio.charset.Charset;
 
 /**
- * Created by Dell on 2016/2/22.
+ * Created by IceDarron 20180718.
  */
 public class UserUtils {
     private static Charset charset = Charset.forName("UTF-8");

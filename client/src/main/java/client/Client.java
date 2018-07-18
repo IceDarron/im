@@ -12,7 +12,7 @@ import protobuf.code.PacketDecoder;
 import protobuf.code.PacketEncoder;
 
 /**
- * Created by Dell on 2016/2/15.
+ * Created by IceDarron 20180718.
  * Simple client for module test
  */
 public class Client {

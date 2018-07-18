@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Created by Dell on 2016/2/2.
+ * Created by IceDarron 20180718.
  */
 public class ClientConnectionMap {
     private static final Logger logger = LoggerFactory.getLogger(ClientConnectionMap.class);

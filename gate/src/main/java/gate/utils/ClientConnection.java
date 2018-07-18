@@ -9,7 +9,7 @@ import tools.threedes.ThreeDES;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Created by Qzy on 2016/1/29.
+ * Created by IceDarron 20180718
  * 客户端连接的封装类
  */
 

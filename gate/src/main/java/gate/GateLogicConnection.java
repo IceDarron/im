@@ -14,7 +14,7 @@ import protobuf.code.PacketDecoder;
 import protobuf.code.PacketEncoder;
 
 /**
- * Created by Dell on 2016/2/2.
+ * Created by IceDarron 20180718.
  */
 public class GateLogicConnection {
     private static final Logger logger = LoggerFactory.getLogger(GateLogicConnection.class);

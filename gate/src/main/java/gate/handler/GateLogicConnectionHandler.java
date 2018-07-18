@@ -11,7 +11,7 @@ import protobuf.Utils;
 import protobuf.generate.internal.Internal;
 
 /**
- * Created by Dell on 2016/2/2.
+ * Created by IceDarron 20180718.
  */
 public class GateLogicConnectionHandler extends SimpleChannelInboundHandler<Message> {
     private static final Logger logger = LoggerFactory.getLogger(GateLogicConnectionHandler.class);

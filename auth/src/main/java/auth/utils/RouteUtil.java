@@ -8,7 +8,7 @@ import protobuf.generate.cli2srv.login.Auth;
 import protobuf.generate.internal.Internal;
 
 /**
- * Created by win7 on 2016/3/3.
+ * Created by IceDarron 20180718.
  */
 public class RouteUtil {
     public static void sendResponse(int code, String desc, long netId,String userId) {

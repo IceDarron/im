@@ -15,7 +15,7 @@ import tools.thrift.generate.db.user.Account;
 import tools.thrift.utils.DBOperator;
 
 /**
- * Created by win7 on 2016/3/3.
+ * Created by IceDarron 20180718.
  */
 public class CLoginHandler extends IMHandler {
     private static final Logger logger = LoggerFactory.getLogger(CLoginHandler.class);

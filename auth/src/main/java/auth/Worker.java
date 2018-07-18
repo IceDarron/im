@@ -9,7 +9,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Dell on 2016/3/2.
+ * Created by IceDarron 20180718.
  */
 public class Worker extends Thread {
     private static final Logger logger = LoggerFactory.getLogger(Worker.class);

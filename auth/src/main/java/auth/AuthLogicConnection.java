@@ -14,7 +14,7 @@ import protobuf.code.PacketDecoder;
 import protobuf.code.PacketEncoder;
 
 /**
- * Created by win7 on 2016/3/5.
+ * Created by IceDarron 20180718.
  */
 public class AuthLogicConnection {
     private static final Logger logger = LoggerFactory.getLogger(AuthLogicConnection.class);

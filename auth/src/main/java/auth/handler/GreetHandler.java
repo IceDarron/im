@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by win7 on 2016/3/5.
+ * Created by IceDarron 20180718.
  */
 public class GreetHandler extends IMHandler {
     private static final Logger logger = LoggerFactory.getLogger(GreetHandler.class);
