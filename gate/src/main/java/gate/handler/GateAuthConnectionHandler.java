@@ -30,17 +30,6 @@ public class GateAuthConnectionHandler extends SimpleChannelInboundHandler<Messa
         sendGreet2Auth();
     }
 
-    @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Message message) throws Exception {
-        Internal.GTransfer gtf = (Internal.GTransfer) message;
-
-        Message cmd = ParseMap.getMessage(gtf.getPtoNum(), gtf.getMsg().toByteArray());
-
-        ByteBuf out = Utils.pack2Client(cmd);
-
-        ClientConnectionMap.getClientConnection(gtf.getNetId()).getCtx().writeAndFlush(out);
-    }
-
     private void sendGreet2Auth() {
         //向auth送Greet协议
         Internal.Greet.Builder ig = Internal.Greet.newBuilder();
@@ -48,5 +37,16 @@ public class GateAuthConnectionHandler extends SimpleChannelInboundHandler<Messa
         ByteBuf out = Utils.pack2Server(ig.build(), ParseRegistryMap.GREET, -1, Internal.Dest.Auth, "admin");
         getGateAuthConnection().writeAndFlush(out);
         logger.info("Gate send Green to Auth.");
+    }
+
+    @Override
+    protected void messageReceived(ChannelHandlerContext channelHandlerContext, Message message) throws Exception {
+        Internal.GTransfer gtf = (Internal.GTransfer) message;
+
+        Message cmd = ParseMap.getMessage(gtf.getPtoNum(), gtf.getMsg().toByteArray());
+
+        ByteBuf out = Utils.pack2Client(cmd);
+
+        ClientConnectionMap.getClientConnection(gtf.getNetId()).getCtx().writeAndFlush(out);
     }
 }

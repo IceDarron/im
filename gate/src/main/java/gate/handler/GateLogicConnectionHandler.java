@@ -29,10 +29,6 @@ public class GateLogicConnectionHandler extends SimpleChannelInboundHandler<Mess
         //向logic发送Greet
         sendGreet2Logic();
     }
-    @Override
-        protected void channelRead0(ChannelHandlerContext channelHandlerContext, Message message) throws Exception {
-
-    }
 
     private void sendGreet2Logic() {
         Internal.Greet.Builder ig = Internal.Greet.newBuilder();
@@ -40,5 +36,10 @@ public class GateLogicConnectionHandler extends SimpleChannelInboundHandler<Mess
         ByteBuf out = Utils.pack2Server(ig.build(), ParseRegistryMap.GREET, -1, Internal.Dest.Logic, "admin");
         getGatelogicConnection().writeAndFlush(out);
         logger.info("Gate send Green to Logic.");
+    }
+
+    @Override
+    protected void messageReceived(ChannelHandlerContext channelHandlerContext, Message message) throws Exception {
+
     }
 }

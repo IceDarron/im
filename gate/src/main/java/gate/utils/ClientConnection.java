@@ -4,7 +4,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.AttributeKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import thirdparty.threedes.ThreeDES;
+import tools.threedes.ThreeDES;
 
 import java.util.concurrent.atomic.AtomicLong;
 
